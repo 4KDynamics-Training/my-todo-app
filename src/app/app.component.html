@@ -1,0 +1,44 @@
+
+<div class="container">
+
+  <div class="row mt-3">
+    <div class="col">
+      <h1>My Todo List</h1>
+    </div>
+  </div>
+
+  <form (submit)="saveTodo()">
+    <div class="row mt-3">
+      <div class="col">
+        <div class="row">
+          <div class="col">
+            <input type="text" placeholder="new todo..." (input)="updateNewTodo($event)" [value]="newTodoDescription" class="form-control">
+          </div>
+          <div class="col-auto">
+            <button class="btn btn-primary" type="submit">Save</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+
+
+  <div class="row mt-3">
+    <div class="col">
+      <ul class="list-group">
+        <li class="list-group-item" *ngFor="let todoItem of todoList; let i = index;">
+          <div class="row">
+            <div class="col">{{todoItem.description}} || {{todoItem.priority}}</div>
+            <div class="col-auto">
+              <button type="button" class="btn-close" (click)="deleteTodo(i)"></button>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+</div>
+
+
+<img src="https://upload.wikimedia.org/wikipedia/en/4/40/Star_Wars_Phantom_Menace_poster.jpg" >
